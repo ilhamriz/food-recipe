@@ -1,0 +1,261 @@
+:root {
+  --grey-1: #f7f6f3;
+  --orange: #ff5b16;
+}
+.form {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* background-color: blue; */
+}
+
+.form-container {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 85vw;
+  flex-wrap: nowrap;
+  /* background-color: darkorange; */
+  margin: 0 auto;
+  /* padding: 100px 0; */
+  /* position: relative; */
+}
+
+.form-wrapper {
+  /* background-color: darkolivegreen; */
+  width: 100%;
+  /* width: calc(100vw - 400px); */
+  /* padding: 100px 160px; */
+  /* display: flex;
+  flex-direction: column; */
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.form-card {
+  /* background-color: darkslategray; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  width: 80%;
+  /* margin-left: auto; */
+  margin: 0 auto;
+}
+
+.wrap-recipe {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48px;
+  /* padding: 32px; */
+}
+
+.wrap-recipe i {
+  padding: 16px;
+  transition: 0.3s ease;
+}
+
+.wrap-recipe i:hover {
+  color: #666666;
+}
+
+.addInput {
+  width: fit-content;
+  margin: 0 auto;
+  color: var(--orange);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.addInput:hover {
+  color: #ff783e;
+}
+
+.submit {
+  display: flex;
+  justify-content: center;
+}
+
+textarea {
+  resize: none;
+}
+
+.photo-container {
+  /* display: flex;
+   */
+}
+
+.photo-wrap {
+  /* background-color: greenyellow; */
+  display: flex;
+  margin-top: 8px;
+  /* width: 100%; */
+}
+
+.img-food {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  background-color: var(--grey-1);
+}
+
+.photo-input-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-left: 32px;
+  position: relative;
+  padding-top: 70px;
+  /* background-color: brown; */
+}
+
+.food-name-container,
+.caption-container,
+.select-container {
+  margin-top: 24px;
+}
+
+p.label-input{
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+.caption-container span,
+.select-container span {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 300;
+  letter-spacing: .5px;
+}
+
+.input-file-trigger {
+  display: block;
+  padding: 12px 32px;
+  background: #537d7f;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 300;
+  transition: all 0.4s;
+  cursor: pointer;
+  max-width: 179px;
+  border-radius: 12px;
+}
+
+.input-file {
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  max-width: 179px;
+  opacity: 0;
+  z-index: -1;
+  padding: 14px 0;
+  cursor: pointer;
+  background-color: blueviolet;
+}
+
+.name-file {
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  /* font-weight: 300; */
+}
+
+.input-file:hover + .input-file-trigger {
+  background: #496d6f;
+  box-shadow: 0 4px 16px rgba(73, 109, 111, 0.4);
+}
+
+.select-container {
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+}
+
+.btn-submit{
+  background-color: var(--orange);
+  color: white;
+  padding: 12px 3rem;
+  width: fit-content;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.form-container .btn-submit{
+  margin-top: 40px;
+}
+
+.number-direction{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  min-height: 30px;
+  margin-right: 1rem;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+@media (min-width: 991px) and (max-width: 1160px) {
+  .photo-wrap {
+    flex-direction: column;
+  }
+
+  .photo-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    position: relative;
+    padding-top: 32px;
+  }
+
+  .select-container {
+    flex-direction: column;
+  }
+
+  .select-container > div:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .form-container {
+    flex-direction: column;
+  }
+  .form-wrapper {
+    padding: 20px 0 80px 0;
+  }
+}
+
+@media (max-width: 768px) {  
+  .form-wrapper {
+    padding: 80px 0;
+  }
+  .form-wrapper .btn-submit{
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .photo-wrap {
+    flex-direction: column;
+  }
+  .photo-input-container {
+    margin-left: 0;
+    padding-top: 24px;
+  }
+  .select-container {
+    flex-direction: column;
+  }
+  .select-container > div:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-card{
+    width: 100%;
+  }
+}
