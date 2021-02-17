@@ -9,7 +9,7 @@ function CreateResipe() {
     caption: "",
     portion: "",
     duration: "",
-    difficulty: "easy",
+    difficulty: "Easy",
   });
   const [image, setImage] = useState({ file: null, preview: defaultFood, name:null });
   const [ingredient, setIngredient] = useState(["", ""]);
@@ -32,24 +32,24 @@ function CreateResipe() {
   const handleSubmit = (event) => {
     setLoading(true);
     let data = new FormData();
-    // openModal();
+    openModal();
 
-    data.append('title', detail.foodName);
-    data.append('body', detail.caption);
-    data.append('ingredients', JSON.stringify(ingredient));
-    data.append('steps', JSON.stringify(step));
-    data.append('portion', detail.portion);
-    data.append('duration', detail.duration);
-    data.append('difficulty', detail.difficulty);
-    data.append('image', image.file);
+    // data.append('title', detail.foodName);
+    // data.append('body', detail.caption);
+    // data.append('ingredients', JSON.stringify(ingredient));
+    // data.append('steps', JSON.stringify(step));
+    // data.append('portion', detail.portion);
+    // data.append('duration', detail.duration);
+    // data.append('difficulty', detail.difficulty);
+    // data.append('image', image.file);
 
-    axios.post('http://localhost:3001/v1/recipes/add', data)
-      .then(res => {
-        console.log('proses');
-        console.log(res.data);
-        setLoading(false);
-      })
-      .catch(err => console.log(err));
+    // axios.post('http://localhost:3001/v1/recipes/add', data)
+    //   .then(res => {
+    //     console.log(res.data);
+    //     setLoading(false);
+    //     openModal();
+    //   })
+    //   .catch(err => console.log(err));
     
     event.preventDefault();
   };

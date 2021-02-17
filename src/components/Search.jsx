@@ -9,8 +9,6 @@ function Search({mobileSize}) {
         <input type="text" className='search__input' name="search" placeholder="Search Recipe"/>
         <button type="submit" className="btn-submit">
           {mobileSize ? <img src={search} alt=""/> : "Search"}
-          {/* <img src={search} alt=""/>
-          Search */}
         </button>
       </form>
     </>
