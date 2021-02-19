@@ -7,7 +7,7 @@ function Search({mobileSize}) {
     <>
       <form action="" className="search-container">
         <input type="text" className='search__input' name="search" placeholder="Search Recipe"/>
-        <button type="submit" className="btn-submit">
+        <button type="submit" className="btn-primary">
           {mobileSize ? <img src={search} alt=""/> : "Search"}
         </button>
       </form>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './CardFood.css'
-import {food1,thumbsUp,clock,barChart,users} from '../images'
+import {food1,thumbsUp} from '../images'
 
 function CardFood({
   image,

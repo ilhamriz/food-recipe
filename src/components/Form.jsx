@@ -4,6 +4,7 @@ import { InputForm } from "./InputForm";
 import Modal from "./Modal";
 import TitleForm from "./TitleForm";
 import {BeatLoader} from 'react-spinners'
+import Button from "./Button";
 
 const Form = ({
   modalIsOpen,
@@ -165,9 +166,9 @@ const Form = ({
             </div>
 
             <div className="submit">
-              <button type='submit' className='btn-submit'>
+              <Button type='submit' className='btn-primary'>
                 {loading ? <BeatLoader loading={loading} size={7} color={"#FFFFFF"}/> : 'Publish'}
-              </button>
+              </Button>
             </div>
           </div>
         </form>

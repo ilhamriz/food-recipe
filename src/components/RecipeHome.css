@@ -3,9 +3,6 @@
   justify-content: center;
   padding-bottom: 48px;
 }
-.recipe-home .container{
-  /* background-color: darkolivegreen; */
-}
 .recipe-home__title{
   font-weight: 500;
   margin-bottom: 24px;
@@ -13,7 +10,6 @@
 .recipe-home__wrapper{
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 }
 @media (max-width:1050px){
   .recipe-home__wrapper{

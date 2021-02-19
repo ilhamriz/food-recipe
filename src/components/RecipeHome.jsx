@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "./Button";
 import CardFood from "./CardFood";
 import "./RecipeHome.css";
 
 function RecipeHome({ getDataByLike }) {
+  const [limit, setLimit] = useState(3);
+  // const [maxLimit, setMaxLimit] = useState(initialState)
+
+  const addLimit = () => {
+    setLimit(limit + 3);
+  }
+
   const minutesToHour = (duration) => {
-    let hour;
-    let minutes;
     if (duration >= 60) {
-      hour = Math.floor(duration / 60);
-      minutes = duration % 60;
+      let hour = Math.floor(duration / 60);
+      let minutes = duration % 60;
       if (minutes === 0) {
         return `${hour} h`
       }
@@ -20,6 +26,7 @@ function RecipeHome({ getDataByLike }) {
       return `${duration} m`;
     }
   }
+
   return (
     <div className="recipe-home">
       <div className="container">
@@ -28,8 +35,8 @@ function RecipeHome({ getDataByLike }) {
           {getDataByLike &&
             getDataByLike.map((val, idx) => {
               return (
-                <>
-                  <CardFood
+                  idx < limit ? 
+                  <CardFood                    
                     key={idx}
                     image={val.url_image}
                     title={val.title}
@@ -38,16 +45,15 @@ function RecipeHome({ getDataByLike }) {
                     portion={val.portion}
                     difficulty={val.difficulty}
                     like={val.like}
-                  // caption={val.body.length > 70 ? val.body.slice(0, 70) + '...' : val.body}
-                />
-                </>
+                  /> : null 
               )
             })}
-          
-          {/* <CardFood />
-          <CardFood />
-          <CardFood />
-          <CardFood /> */}
+        </div>
+        <div className="button-center">
+          {limit <= (getDataByLike && getDataByLike.length) ?
+          <Button className='btn-secondary' onClick={addLimit}>
+            Load more Recipes
+          </Button> : null }
         </div>
       </div>
     </div>
@@ -55,3 +61,5 @@ function RecipeHome({ getDataByLike }) {
 }
 
 export default RecipeHome;
+
+// caption={val.body.length > 70 ? val.body.slice(0, 70) + '...' : val.body}

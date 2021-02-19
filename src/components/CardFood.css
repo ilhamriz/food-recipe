@@ -90,10 +90,6 @@
   .card-food{
     width: 48%;
   }
-  .card-food:not(:nth-child(2n)){
-    /* margin-right: 24px; */
-    /* background-color: darkolivegreen; */
-  }
 }
 @media (max-width:650px){
   .card-food{

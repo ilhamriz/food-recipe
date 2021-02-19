@@ -1,0 +1,59 @@
+.all-recipe{
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+.dropdown-container {
+  width: 120px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.dropdown{
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: color 0.3s ease, background-color 0.3s ease, border-bottom-color 0.3s ease;
+}
+.dropdown option{
+  border: none;
+  margin-top: 1rem;
+}
+
+select:hover,
+select:focus {
+  box-shadow: 0 0 5px 1px #c0392b;
+}
+.select-icon {
+  position: absolute;
+  top: 13px;
+  right: 8px;
+  pointer-events: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.select-icon svg.icon {
+  transition: 0.3s ease;
+  fill: #2a2a2a;
+}
+select:focus ~ .select-icon svg.icon {
+  transform: rotate(180deg);
+}
+
+
+.all-recipe__card-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width:1050px){
+  .all-recipe__card-container{
+    justify-content: space-between;
+  }
+}

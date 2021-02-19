@@ -1,9 +1,4 @@
-:root{
-  --orange: #FF5B16;
-}
-
-input, textarea, select, button{
-  /* margin-bottom: 1rem; */
+input, textarea, select{
   padding: 12px 1rem;
   background-color: #F2F1EE;
   border: none;
@@ -20,14 +15,6 @@ input::placeholder{
 
 #food-name{
   text-transform: capitalize;
-}
-
-.btn-submit:hover{
-  background-color: #ff783e;
-}
-
-.btn-submit:focus{
-  background-color: #e24b0a;
 }
 
 input[type='number']{

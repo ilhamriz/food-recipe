@@ -1,14 +1,3 @@
-:root {
-  --grey-1: #f7f6f3;
-  --orange: #ff5b16;
-}
-.form {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* background-color: blue; */
-}
-
 .form-container {
   display: flex;
   justify-content: stretch;
@@ -78,11 +67,6 @@
 
 textarea {
   resize: none;
-}
-
-.photo-container {
-  /* display: flex;
-   */
 }
 
 .photo-wrap {
@@ -172,16 +156,7 @@ p.label-input{
   /* flex-wrap: wrap; */
 }
 
-.btn-submit{
-  background-color: var(--orange);
-  color: white;
-  padding: 12px 3rem;
-  width: fit-content;
-  cursor: pointer;
-  transition: .3s ease;
-}
-
-.form-container .btn-submit{
+.form-container .btn-primary{
   margin-top: 40px;
 }
 

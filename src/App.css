@@ -1,10 +1,17 @@
+:root {
+  --grey-1: #f7f6f3;
+  --orange: #ff5b16;
+  --orange-hover: #ff783e;
+  --black: #2a2a2a;
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
-  color: #2a2a2a;
+  color: var(--black);
 }
 
 body{

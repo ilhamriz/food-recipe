@@ -1,0 +1,33 @@
+button{
+  padding: 12px 3rem;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  width: fit-content;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: .3s ease;
+}
+
+.btn-primary{
+  background-color: var(--orange);
+  color: white;
+}
+.btn-primary:hover{
+  background-color: #ff783e;
+}
+.btn-primary:focus{
+  background-color: #e24b0a;
+}
+
+.btn-secondary{
+  background-color: var(--grey-1);
+}
+.btn-secondary:hover{
+  background-color: #e4e4e4;
+}
+.button-center{
+  width: 100%;
+  text-align: center;
+}

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Popular.css'
 import {food1,thumbsUp,clock,barChart,users} from '../images'
+import { Link } from 'react-router-dom'
 
 function Popular({
   getDataByLike
 }) {
+  // const [state, setstate] = useState(initialState)
   return (
     <div className='popular'>
       <div className="container">
@@ -18,7 +20,7 @@ function Popular({
             <h2>Popular</h2>
             <p className='popular__subtitle'>Most popular recipes based on the number of likes</p>
           </section>
-          <p>View All</p>
+          <Link to={{pathname: '/all-recipe', state:'like'}} className='link-primary'>View All</Link>
         </div>
         <div className="popular__body">
           <div className="popular__body-container">

@@ -1,0 +1,41 @@
+footer{
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 100px 0;
+  /* font-size: 14px; */
+  background-color: #F7F6F3;
+}
+
+footer .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1px;
+}
+footer img{
+  /* width: 20px; */
+}
+.footer-sosmeds{
+  display: flex;
+  align-items: center;
+}
+
+.footer-sosmeds a{
+  display: flex;
+  align-items: center;
+}
+
+.footer-sosmeds a:not(:last-child){
+  margin-right: 40px;
+}
+
+@media (max-width:576px){
+  footer .container{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer p{
+    margin-bottom: 1rem;
+  }
+}

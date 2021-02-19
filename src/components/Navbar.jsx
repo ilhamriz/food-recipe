@@ -16,21 +16,19 @@ export class Navbar extends Component {
           hide: true
         },
         {
+          name: 'Recipes',
+          to: { pathname:'/all-recipe', state: 'date'}
+        },
+        {
           name: 'Share my recipe',
           to: '/create-recipe'
-        }
+        },
       ]
     }
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
-    // if (window.location.pathname === '/') {
-    //   this.hideNav(true);
-    // }
-    // else {
-    //   this.hideNav(false);
-    // }
   }
 
   handleScroll = () => {

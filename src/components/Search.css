@@ -13,7 +13,7 @@
   margin-right: 1rem;
 }
 
-.search-container .btn-submit{
+.search-container .btn-primary{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
 }
 
 @media (max-width: 768px){
-  .search-container .btn-submit{
+  .search-container .btn-primary{
     padding: 10px 1rem;
   }
 }
