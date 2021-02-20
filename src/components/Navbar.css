@@ -13,7 +13,7 @@
 }
 
 .navbar.scroll{
-  background-color: rgba(247, 246, 243, .9);
+  background-color: rgba(247, 246, 243, 1);
   height: 60px;
 }
 
@@ -51,13 +51,12 @@
   color: var(--black);
   opacity: .7;
   letter-spacing: 1px;
-  font-weight: 300;
   font-size: 14px;
 }
 
 .active{
   opacity: 1;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .nav-links:hover{
@@ -75,7 +74,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #020b10;
+    background-color: var(--grey-1);
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -97,6 +96,13 @@
   }
 
   .nav-links{
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0px;
+    opacity: .5;
+  }
+  .active{
+    opacity: 1;
+    font-weight: 600;
   }
 }

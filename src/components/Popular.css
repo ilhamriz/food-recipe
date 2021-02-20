@@ -222,6 +222,9 @@
   .popular__body{
     overflow-x: auto;
   }
+  .popular__body::-webkit-scrollbar {
+    display: none;
+  }
   .popular__body-container, .popular__body-two{
     min-width: 300px;
   }

@@ -10,14 +10,18 @@ function Home() {
     getData();
   }, [])
 
-  const getData = async () => {
+  // useEffect(() => {
+  //   console.log(getDataByLike);
+  // }, [getDataByLike])
+
+  const getData = () => {
     // await axios.get('http://localhost:3001/v1/recipes/sort/like')
     //   .then(res => {
     //     setGetDataByLike(res.data);
     //   })
     //   .catch(err => console.log(err))
     
-    await axios.get('http://localhost:3001/v1/recipes/')
+    axios.get('http://localhost:3001/v1/recipes/')
       .then(res => {
         setGetDataByLike(res.data);
       })

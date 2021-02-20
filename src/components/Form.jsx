@@ -36,7 +36,6 @@ const Form = ({
               <div className='photo-container'>
                 <p className='label-input'>Photo of your cooking</p>
                 <div className='photo-wrap'>
-                  {/* <div className="img-food" style={{backgroundImage: image.preview}}/> */}
                   <img src={image.preview} className="img-food" alt='FoodImage'/>
                   <div className='photo-input-container'>
                     <InputForm

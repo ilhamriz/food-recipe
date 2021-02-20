@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Button from './Button';
 import './Modal.css'
 
 const Modal = ({ show, close, children }) => {
@@ -11,10 +12,14 @@ const Modal = ({ show, close, children }) => {
       <div className='modal-container'>
         <div className="modal-card">
           <div>
-            {children}
-            <button onClick={close}>&times;</button>
+            <lottie-player className='modal-gif' src="https://assets9.lottiefiles.com/temp/lf20_xG4aYa.json" speed="1" autoplay />
+            <p>Your recipe has been published successfully</p>
           </div>
-          <Link to='/'>See my recipe</Link>
+          <Link to='/' className='modal__btn'>
+            <Button className='btn-primary'>
+                See my recipe
+            </Button>
+          </Link>
         </div>
       </div>
     )

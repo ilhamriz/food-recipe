@@ -6,16 +6,28 @@ import { useLocation} from "react-router";
 
 function AllRecipe() {
   let location = useLocation();
+  const locationType = location.state.type;
+
   const [allData, setAllData] = useState([]);
-  const [select, setSelect] = useState(location.state);
+  const [select, setSelect] = useState(location.state.value);
+  const [dropdown, setDropdown] = useState(true);
+
+  // useEffect(() => {    
+  //   console.log(location.state);
+  // })
 
   useEffect(() => {
-    // console.log(location.state);
-    getData(select);
+    if (locationType === 'search') {
+      setDropdown(false);
+      getData(locationType, select);
+    }
+    else {
+      getData(locationType, select);      
+    }
   }, [])
   
   useEffect(() => {
-    getData(select);
+    getData(locationType, select);
   }, [select])
 
   const handleSort = (event) => {
@@ -23,8 +35,8 @@ function AllRecipe() {
     setSelect(event.target.value);
   }
 
-  const getData = (selectValue) => {
-    axios.get(`http://localhost:3001/v1/recipes/sort/${selectValue}`)
+  const getData = (type, selectValue) => {
+    axios.get(`http://localhost:3001/v1/recipes/${type}/${selectValue}`)
       .then(res => {
         setAllData(res.data);
       })
@@ -50,15 +62,16 @@ function AllRecipe() {
   return (
     <div className="all-recipe">
       <div className="container">
+        {dropdown ?
         <div className="dropdown-container">
           <select className='dropdown' value={select} onChange={handleSort}>
             <option value="like">Popular</option>
-            <option value="date">Newest</option>
+            <option value="createdAt">Newest</option>
           </select>
           <div className="select-icon">
             <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"/></svg>
           </div>
-        </div>
+        </div> : null }
         <div className="all-recipe__card-container">
           {allData.map((val, idx) => {
             return (

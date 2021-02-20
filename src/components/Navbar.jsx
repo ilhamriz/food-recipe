@@ -17,7 +17,7 @@ export class Navbar extends Component {
         },
         {
           name: 'Recipes',
-          to: { pathname:'/all-recipe', state: 'date'}
+          to: { pathname:'/all-recipe', state: {type:'sort', value:'createdAt'}}
         },
         {
           name: 'Share my recipe',
