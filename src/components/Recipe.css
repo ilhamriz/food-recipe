@@ -1,0 +1,231 @@
+.recipe{
+  display: flex;
+  justify-content: center;
+  background-color: var(--grey-1);
+  padding: 100px 0;
+}
+
+.recipe .container{
+  max-width: 820px;
+}
+
+.recipe h1{
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: .5rem;
+  line-height: 55px;
+}
+.recipe h2{
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.recipe__subtitle{
+  line-height: 28px;
+}
+.recipe__image{
+  background: #333;
+  width: 100%;
+  height: 450px;
+  margin-bottom: 48px;
+}
+.recipe__subtitle,
+.recipe__ingredients{
+  margin-bottom: 2rem;
+}
+
+.recipe__ingredients-details{
+  display: flex;
+}
+.recipe__ingredients{
+  width: 100%;
+}
+
+.recipe__details{
+  display: flex;
+  justify-content: space-between;
+  width: 240px;
+  height: fit-content;
+  /* margin-top: 3rem; */
+  padding-left: 1rem;
+  border-left: 2px solid #BDBDBD;
+}
+.recipe__details section p{
+  margin-bottom: 1rem;
+}
+.recipe__details svg{
+  width: 36px;
+  fill: var(--orange);
+}
+.recipe__detail{
+  font-weight: 600;
+}
+
+@media (max-width:768px){
+  .recipe__ingredients-details{
+    flex-direction: column;
+  }
+  .recipe__ingredients{
+    order: 1;
+  }
+  .recipe__details{
+    flex-direction: column;
+    padding-left: 0;
+    padding-bottom: 1rem;
+    width: 300px;
+    margin-bottom: 2rem;
+    border-left: none;
+    border-bottom: 1px solid #BDBDBD;
+  }
+  .recipe__details section{
+    display: flex;
+    justify-content: space-between;
+  }
+  .recipe__details section p{
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width:380px){
+  .recipe__details{
+    flex-direction: row;
+    width: auto;
+    max-width: 200px;
+  }
+  .recipe__details section{
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .recipe__details section p{
+    margin-bottom: .5rem;
+  }
+}
+
+.recipe__directions {
+  margin-bottom: 4rem;
+}
+.recipe__directions section{
+  margin-bottom: 1.5rem;
+}
+.recipe__direction-step{
+  font-weight: 700;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  margin-bottom: 4px;
+}
+.recipe__direction-step::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--orange);
+  position: absolute;
+  left: 0;
+  border-radius: 3px;
+}
+.recipe__directions p{
+  line-height: 27px;
+}
+
+.recipe__likes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.recipe__likes-num{
+  margin: 1rem 0 4px 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--orange);
+}
+.recipe__likes button{
+  padding: 0;
+}
+.btn-like{
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 3px solid var(--orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-like:focus{
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+.btn-clicked{
+  animation: blob .5s;
+}
+@keyframes blob {
+  50% {transform: scale(1.15,1.15);}
+}
+
+
+/* CHECKBOX */
+.checkbox__container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 36px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.checkbox__container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #537D7F;
+  border-radius: 6px;
+}
+
+.checkbox__container:hover input ~ .checkbox__checkmark {
+  background-color: var(--grey-2);
+}
+
+.checkbox__container input:checked ~ .checkbox__checkmark {
+  background-color: var(--orange);
+  border: none;
+}
+
+.checkbox__checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox__container input:checked ~ .checkbox__checkmark:after {
+  display: block;
+}
+
+.checkbox__container .checkbox__checkmark:after {
+  left: 8px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

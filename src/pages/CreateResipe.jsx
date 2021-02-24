@@ -16,6 +16,7 @@ function CreateResipe() {
   const [step, setStep] = useState([""]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [maxSizePhoto, setMaxSizePhoto] = useState(false);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -62,11 +63,18 @@ function CreateResipe() {
       setImage({ ...image });
     }
     else {
-      setImage({
-        file: event.target.files[0],
-        preview: URL.createObjectURL(event.target.files[0]),
-        name: event.target.files[0].name
-      });
+      if (event.target.files[0].size > 2000000) {
+        setMaxSizePhoto(true);
+        setImage({ file: null, preview: defaultFood, name: null });
+      }
+      else{
+        setImage({
+          file: event.target.files[0],
+          preview: URL.createObjectURL(event.target.files[0]),
+          name: event.target.files[0].name
+        });
+        setMaxSizePhoto(false);
+      }
     }
     event.preventDefault();
   };
@@ -134,6 +142,7 @@ function CreateResipe() {
         deleteIngredient={deleteIngredient}
         deleteStep={deleteStep}
         loading={loading}
+        maxSizePhoto={maxSizePhoto}
       />
     </>
   );

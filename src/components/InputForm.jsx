@@ -24,18 +24,6 @@ export const InputForm = ({
         // required
       />
     );
-  } else if (tag === "select") {
-    return (
-      <select
-        name={name}
-        value={value}
-        onChange={onChange}
-      >
-        <option value="Easy">Easy</option>
-        <option value="Medium">Medium</option>
-        <option value="Hard">Hard</option>
-      </select>
-    );
   }
   else if(tag === 'textarea') {
     return (      

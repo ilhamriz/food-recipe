@@ -2,7 +2,7 @@ footer{
   display: flex;
   justify-content: center;
   padding: 40px 0 60px 0;
-  background-color: #F7F6F3;
+  background-color: var(--grey-1);
 }
 
 footer .container{

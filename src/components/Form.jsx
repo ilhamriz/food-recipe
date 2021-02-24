@@ -3,8 +3,9 @@ import "./Form.css";
 import { InputForm } from "./InputForm";
 import Modal from "./Modal";
 import TitleForm from "./TitleForm";
-import {BeatLoader} from 'react-spinners'
+import { BeatLoader } from "react-spinners";
 import Button from "./Button";
+import Dropdown from "./Dropdown";
 
 const Form = ({
   modalIsOpen,
@@ -21,7 +22,8 @@ const Form = ({
   addInput,
   deleteIngredient,
   deleteStep,
-  loading
+  loading,
+  maxSizePhoto,
 }) => {
   return (
     <div className="form">
@@ -33,29 +35,36 @@ const Form = ({
         <form className="form-wrapper" onSubmit={handleSubmit}>
           <div className="form-card">
             <div className="wrap-recipe">
-              <div className='photo-container'>
-                <p className='label-input'>Photo of your cooking</p>
-                <div className='photo-wrap'>
-                  <img src={image.preview} className="img-food" alt='FoodImage'/>
-                  <div className='photo-input-container'>
+              <div className="photo-container">
+                <p className="label-input">Photo of your cooking</p>
+                <div className="photo-wrap">
+                  <img
+                    src={image.preview}
+                    className="img-food"
+                    alt="FoodImage"
+                  />
+                  <div className="photo-input-container">
                     <InputForm
                       tag="input"
                       type="file"
                       name="image"
-                      id='my-file'
-                      className='input-file'
+                      id="my-file"
+                      className="input-file"
                       onChange={handleImage}
                     />
-                    <label htmlFor='my-file' className='input-file-trigger'>
+                    <label htmlFor="my-file" className="input-file-trigger">
                       Select a photo
                     </label>
-                    <p className='name-file'>{image.name}</p>
+                    {maxSizePhoto ? (
+                      <p className="name-file warning">Max 2MB !</p>
+                    ) : null}
+                    <p className="name-file">{image.name}</p>
                   </div>
                 </div>
               </div>
 
               <div className="food-name-container">
-                <p className='label-input'>Food Name</p>
+                <p className="label-input">Food Name</p>
                 <InputForm
                   tag="input"
                   id="food-name"
@@ -67,7 +76,7 @@ const Form = ({
               </div>
 
               <div className="caption-container">
-                <p className='label-input'>Caption</p>
+                <p className="label-input">Caption</p>
                 <InputForm
                   tag="textarea"
                   name="caption"
@@ -78,41 +87,33 @@ const Form = ({
 
               <div className="select-container">
                 <div className="portion-container">
-                  <p className='label-input'>Portion</p>
-                  <InputForm
-                    tag="input"
-                    type="number"
-                    name="portion"
-                    value={detail.portion}
-                    onChange={handleDetail}
-                  />
+                  <p className="label-input">Portion</p>
+                  <input type="number" name="portion" value={detail.duration} onChange={handleDetail} min='0'/>
                   <span>persons</span>
                 </div>
                 <div className="duration-container">
-                  <p className='label-input'>Duration</p>
-                  <InputForm
-                    tag="input"
-                    type="number"
-                    name="duration"
-                    value={detail.duration}
-                    onChange={handleDetail}
-                  />
+                  <p className="label-input">Duration</p>
+                  <input type="number" name="duration" value={detail.duration} onChange={handleDetail} min='0'/>
                   <span>minutes</span>
                 </div>
                 <div className="difficulty-container">
-                  <p className='label-input'>Difficulty</p>
-                  <InputForm
-                    tag="select"
+                  <p className="label-input">Difficulty</p>
+                  <Dropdown
+                    className='hover-none'
                     name="difficulty"
                     value={detail.difficulty}
                     onChange={handleDetail}
-                  />
+                  >
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                  </Dropdown>
                 </div>
               </div>
             </div>
 
             <div className="wrap-recipe">
-              <p className='label-input'>Ingredients</p>
+              <p className="label-input">Ingredients</p>
               {ingredient.map((val, idx) => {
                 return (
                   <div className="input-array" key={idx}>
@@ -131,42 +132,53 @@ const Form = ({
                   </div>
                 );
               })}
-              <p className='addInput' onClick={(e, target = "ingredient") => addInput(e, target)}>
-                + Bahan
+              <p
+                className="addInput"
+                onClick={(e, target = "ingredient") => addInput(e, target)}
+              >
+                + Ingredient
               </p>
             </div>
 
             <div className="wrap-recipe">
-              <p className='label-input'>Directions</p>
+              <p className="label-input">Directions</p>
               {step.map((val, idx) => {
                 return (
-                  <div className="input-array" key={idx}>
-                    <div className="number-direction">
-                      {idx+1}
-                    </div>
-                    <InputForm
-                      tag="input"
-                      type="text"
-                      name="ingre"
-                      placeholder="Cut the chicken into pieces"
-                      value={val}
-                      onChange={(e) => handleStep(e, idx)}
-                    />
-                    <i
-                      className="fas fa-times"
-                      onClick={(e) => deleteStep(e, idx)}
-                    />
+                  <div className="input-array input-ingredient" key={idx}>
+                    <section className='input-array__number'>
+                      <div className="number-direction">{idx + 1}</div>
+                    </section>
+                    <section className='input-array__textarea'>
+                      <textarea
+                        className='input-ingredient'
+                        name='ingre'
+                        placeholder='Cut the chicken into pieces'
+                        value={val}
+                        onChange={(e) => handleStep(e, idx)}
+                      />
+                      <i
+                        className="fas fa-times"
+                        onClick={(e) => deleteStep(e, idx)}
+                      />
+                    </section>
                   </div>
                 );
               })}
-              <p className='addInput' onClick={(e, target = "step") => addInput(e, target)}>
-                + Langkah
+              <p
+                className="addInput"
+                onClick={(e, target = "step") => addInput(e, target)}
+              >
+                + Step
               </p>
             </div>
 
             <div className="submit">
-              <Button type='submit' className='btn-primary'>
-                {loading ? <BeatLoader loading={loading} size={7} color={"#FFFFFF"}/> : 'Publish'}
+              <Button type="submit" className="btn-primary">
+                {loading ? (
+                  <BeatLoader loading={loading} size={7} color={"#FFFFFF"} />
+                ) : (
+                  "Publish"
+                )}
               </Button>
             </div>
           </div>

@@ -1,11 +1,9 @@
 .title-form-container{
-  background-color: darkslateblue;
   max-width: 400px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* position: relative; */
-  padding: 100px 40px 0 0;
+  padding: 110px 40px 0 0;
   position: sticky;
   top: 0;
   left: 0;
@@ -29,12 +27,12 @@
 }
 
 #title-form-img{
-  margin: 48px 0 0 -30px;
+  margin: 48px 0 0 -50px;
   /* position: absolute;
   top: 0;
   left: 0px; */
   /* bottom: 0; */
-  max-width: 100%;
+  max-width: 110%;
   /* width: 100%; */
   object-fit: contain;
 }
