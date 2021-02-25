@@ -74,6 +74,7 @@ function AllRecipe() {
             return (
               <CardFood
                 key={idx}
+                id={val._id}
                 image={val.url_image}
                 title={val.title}
                 caption={val.body}

@@ -23,9 +23,10 @@
   line-height: 28px;
 }
 .recipe__image{
-  background: #333;
+  /* background: #333; */
   width: 100%;
-  height: 450px;
+  max-height: 650px;
+  object-fit: cover;
   margin-bottom: 48px;
 }
 .recipe__subtitle,
@@ -152,6 +153,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.btn-like svg{
+  fill: var(--orange);
+}
+.btn-like:disabled{
+  border: 3px solid #c5c5c5;
+}
+.btn-like:disabled svg{
+  fill: #c5c5c5;
 }
 .btn-like:focus{
   -webkit-tap-highlight-color: transparent;

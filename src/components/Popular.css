@@ -30,6 +30,13 @@
   display: flex;
   position: relative;
 }
+.popular__body-container:first-child, .popular__body-two{
+  transition: .3s ease;
+}
+
+.popular__body-container:first-child:hover, .popular__body-two:hover{
+  filter: drop-shadow(4px 8px 12px rgba(42, 42, 42, 0.15));
+}
 .popular__body-two{
   padding-right: 1rem;
 }

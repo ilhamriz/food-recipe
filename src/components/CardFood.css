@@ -7,6 +7,20 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.5rem;
+  transition: .3s ease;
+}
+.card-food:hover{
+  filter: drop-shadow(4px 8px 12px rgba(42, 42, 42, 0.15));
+}
+.card-food-empty{
+  width: calc((100% / 3) - 18px);
+  height: 200px;
+  margin-bottom: 1.5rem;
+  border-radius: 24px;
+  background: #F7F6F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .card-food__body{
   width: 100%;
@@ -82,7 +96,8 @@
 }
 
 @media (min-width:1050px){
-  .card-food:not(:nth-child(3n+3)){
+  .card-food:not(:nth-child(3n+3)),
+  .card-food-empty:not(:nth-child(3n+3)){
     margin-right: 24px;
   }
 }

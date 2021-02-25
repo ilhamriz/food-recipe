@@ -5,7 +5,8 @@ import Popular from '../components/Popular'
 import RecipeHome from '../components/RecipeHome'
 
 function Home() {
-  const [getDataByLike, setGetDataByLike] = useState([])
+  const [getDataPopular, setGetDataPopular] = useState([])
+  const [getDataNewest, setGetDataNewest] = useState([])
   useEffect(() => {
     getData();
   }, [])
@@ -15,15 +16,15 @@ function Home() {
   // }, [getDataByLike])
 
   const getData = () => {
-    // await axios.get('http://localhost:3001/v1/recipes/sort/like')
-    //   .then(res => {
-    //     setGetDataByLike(res.data);
-    //   })
-    //   .catch(err => console.log(err))
-    
-    axios.get('http://localhost:3001/v1/recipes/')
+    axios.get('http://localhost:3001/v1/recipes/sort/like')
       .then(res => {
-        setGetDataByLike(res.data);
+        setGetDataPopular(res.data);
+      })
+      .catch(err => console.log(err))
+    
+    axios.get('http://localhost:3001/v1/recipes/sort/createdAt')
+      .then(res => {
+        setGetDataNewest(res.data);
       })
       .catch(err => console.log(err))
   }
@@ -31,12 +32,11 @@ function Home() {
   return (
     <>
       <Hero />
-      {/* {getDataByLike.length > 0 ?
-        <Popular getDataByLike={getDataByLike} />
-        : <Popular />} */}
-      <Popular />
-      {getDataByLike.length > 0 ?
-        <RecipeHome getDataByLike={getDataByLike} />
+      {getDataPopular.length > 0 ?
+        <Popular getDataPopular={getDataPopular} />
+        : <Popular />}
+      {getDataNewest.length > 0 ?
+        <RecipeHome getDataNewest={getDataNewest} />
         : <RecipeHome />}
       {/* <RecipeHome getDataByLike={getDataByLike} /> */}
     </>
